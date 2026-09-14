@@ -42,7 +42,7 @@ export function StoryCard({ story, variant = "standard" }) {
               </p>
             </div>
 
-            <div className="pt-6 border-t border-[var(--border-theme,#D5CCC0)] flex items-center justify-between">
+            <div className="pt-6 border-t border-[var(--border-theme,#D5CCC0)] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
               <Link
                 to={`/authors/${story.authorSlug}`}
                 className="flex items-center gap-3 group/author"
@@ -61,13 +61,13 @@ export function StoryCard({ story, variant = "standard" }) {
                   </span>
                 </div>
               </Link>
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2.5 w-full sm:w-auto justify-between sm:justify-end">
                 <button
                   onClick={(e) => {
                     e.preventDefault();
                     toggleBookmark(story);
                   }}
-                  className="p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition text-[var(--text-sub,#44403C)]"
+                  className="p-2.5 rounded-full border border-[var(--border-theme,#D5CCC0)] hover:bg-black/5 dark:hover:bg-white/10 transition text-[var(--text-sub,#44403C)]"
                   title={bookmarked ? "బుక్‌మార్క్ తీసివేయండి" : "దాచుకోండి"}
                 >
                   {bookmarked ? (
@@ -78,7 +78,7 @@ export function StoryCard({ story, variant = "standard" }) {
                 </button>
                 <Link
                   to={`/stories/${story.slug}`}
-                  className="inline-flex items-center gap-1.5 px-4 py-2 bg-[#1C1917] hover:bg-[#A44A3F] dark:bg-stone-200 dark:hover:bg-[#A44A3F] dark:hover:text-white dark:text-[#1C1917] text-white text-xs font-telugu-sans font-semibold rounded-full transition shadow-xs"
+                  className="flex-1 sm:flex-initial text-center inline-flex items-center justify-center gap-1.5 px-5 py-2.5 bg-[#1C1917] hover:bg-[#A44A3F] dark:bg-stone-200 dark:hover:bg-[#A44A3F] dark:hover:text-white dark:text-[#1C1917] text-white text-xs font-telugu-sans font-semibold rounded-full transition shadow-xs"
                 >
                   కథ చదవండి →
                 </Link>

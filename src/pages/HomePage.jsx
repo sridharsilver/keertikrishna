@@ -133,7 +133,7 @@ export function HomePage() {
       {/* 5. Editor's Pick Highlight Banner */}
       {editorsPick && (
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-[#2C423B] text-white rounded-3xl p-8 sm:p-12 relative overflow-hidden shadow-lg border border-[#3C5A50]">
+          <div className="bg-[#2C423B] text-white rounded-3xl p-6 sm:p-10 md:p-12 relative overflow-hidden shadow-lg border border-[#3C5A50]">
             <div className="absolute right-0 top-0 bottom-0 w-1/3 opacity-10 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-white via-transparent to-transparent pointer-events-none" />
             <div className="max-w-3xl relative z-10 space-y-4">
               <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/15 rounded-full text-xs font-telugu-sans font-bold text-amber-200">
@@ -148,14 +148,14 @@ export function HomePage() {
               <p className="text-stone-200 font-telugu-sans text-sm sm:text-base leading-relaxed line-clamp-3">
                 {editorsPick.excerpt}
               </p>
-              <div className="pt-4 flex items-center gap-4">
+              <div className="pt-4 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4">
                 <Link
                   to={`/${editorsPick.type === "poem" ? "poems" : "stories"}/${editorsPick.slug}`}
-                  className="px-6 py-2.5 bg-amber-400 hover:bg-amber-300 text-stone-900 rounded-full font-telugu-sans text-xs font-bold transition shadow-sm"
+                  className="w-full sm:w-auto text-center px-6 py-2.5 bg-amber-400 hover:bg-amber-300 text-stone-900 rounded-full font-telugu-sans text-xs font-bold transition shadow-sm"
                 >
                   రచనను చదవండి →
                 </Link>
-                <span className="text-xs text-stone-200 font-telugu-sans font-medium">
+                <span className="text-xs text-stone-200 font-telugu-sans font-medium text-center sm:text-left">
                   రచన: {editorsPick.authorName}
                 </span>
               </div>

@@ -11,25 +11,25 @@ export function PoemCard({ poem, variant = "standard" }) {
 
   if (variant === "featured") {
     return (
-      <div className="relative bg-[var(--bg-content,#FDFBF7)] border-2 border-[var(--border-theme,#D5CCC0)] rounded-3xl p-8 sm:p-12 text-center shadow-md overflow-hidden">
+      <div className="relative bg-[var(--bg-content,#FDFBF7)] border-2 border-[var(--border-theme,#D5CCC0)] rounded-3xl p-6 sm:p-10 md:p-12 text-center shadow-md overflow-hidden">
         {/* Background decorative watermark */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[#A44A3F]/5 dark:text-white/5 pointer-events-none text-9xl font-serif select-none">
           కవిత
         </div>
 
-        <div className="relative z-10 max-w-2xl mx-auto space-y-6">
+        <div className="relative z-10 max-w-2xl mx-auto space-y-5 sm:space-y-6">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 bg-[#C07D3E]/15 text-[#C07D3E] dark:text-[#E8A568] text-xs font-telugu-sans font-bold rounded-full border border-[#C07D3E]/30">
             <Feather className="w-3.5 h-3.5" />
             <span>ప్రత్యేక కవిత (Featured Poem)</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-telugu-poetry font-bold text-[var(--text-main,#1C1917)] leading-[1.35] py-0.5">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-telugu-poetry font-bold text-[var(--text-main,#1C1917)] leading-[1.35] py-0.5">
             <Link to={`/poems/${poem.slug}`} className="hover:text-[#A44A3F] transition-colors">
               {poem.title}
             </Link>
           </h2>
 
-          <div className="font-telugu-poetry text-base sm:text-lg text-[var(--text-main,#2D1F13)] leading-relaxed italic border-y border-[var(--border-theme,#D5CCC0)] py-6 my-6 px-4">
+          <div className="font-telugu-poetry text-base sm:text-lg text-[var(--text-main,#2D1F13)] leading-relaxed italic border-y border-[var(--border-theme,#D5CCC0)] py-4 sm:py-6 my-4 sm:my-6 px-2 sm:px-4">
             <p className="line-clamp-4 whitespace-pre-line">
               {poem.content ? poem.content.split("\n\n")[0] : poem.excerpt}
             </p>
@@ -47,37 +47,40 @@ export function PoemCard({ poem, variant = "standard" }) {
               ))}
           </div>
 
-          <div className="pt-4 flex items-center justify-center gap-4">
+          {/* Responsive Author & Action Row */}
+          <div className="pt-4 sm:pt-6 flex flex-col sm:flex-row items-center justify-between sm:justify-center gap-4">
             <Link
               to={`/authors/${poem.authorSlug}`}
-              className="flex items-center gap-2 text-sm font-telugu-serif font-bold text-[var(--text-main,#1C1917)] hover:text-[#A44A3F] transition"
+              className="flex items-center gap-2.5 text-sm sm:text-base font-telugu-serif font-bold text-[var(--text-main,#1C1917)] hover:text-[#A44A3F] transition"
             >
               <img
                 src={poem.authorAvatar}
                 alt={poem.authorName}
-                className="w-8 h-8 rounded-full object-cover ring-1 ring-[#A44A3F] shadow-xs"
+                className="w-9 h-9 sm:w-8 sm:h-8 rounded-full object-cover ring-2 ring-[#A44A3F] shadow-xs"
               />
-              <span>— {poem.authorName}</span>
+              <span className="whitespace-nowrap">— {poem.authorName}</span>
             </Link>
 
-            <Link
-              to={`/poems/${poem.slug}`}
-              className="px-5 py-2 bg-[#A44A3F] hover:bg-[#8B3D34] text-white text-xs font-telugu-sans font-semibold rounded-full transition shadow-xs"
-            >
-              కవిత పూర్తిగా చదవండి
-            </Link>
+            <div className="flex items-center gap-3 w-full sm:w-auto justify-center">
+              <Link
+                to={`/poems/${poem.slug}`}
+                className="flex-1 sm:flex-initial text-center px-6 py-2.5 bg-[#A44A3F] hover:bg-[#8B3D34] text-white text-xs sm:text-sm font-telugu-sans font-semibold rounded-full transition shadow-xs"
+              >
+                కవిత పూర్తిగా చదవండి
+              </Link>
 
-            <button
-              onClick={() => toggleBookmark(poem)}
-              className="p-2 rounded-full border border-[var(--border-theme,#D5CCC0)] hover:bg-black/5 dark:hover:bg-white/10 transition text-[var(--text-sub,#44403C)]"
-              title={bookmarked ? "బుక్‌మార్క్ తీసివేయండి" : "దాచుకోండి"}
-            >
-              {bookmarked ? (
-                <BookmarkCheck className="w-4 h-4 text-[#A44A3F] fill-current" />
-              ) : (
-                <Bookmark className="w-4 h-4" />
-              )}
-            </button>
+              <button
+                onClick={() => toggleBookmark(poem)}
+                className="p-2.5 rounded-full border border-[var(--border-theme,#D5CCC0)] hover:bg-black/5 dark:hover:bg-white/10 transition text-[var(--text-sub,#44403C)] flex-shrink-0"
+                title={bookmarked ? "బుక్‌మార్క్ తీసివేయండి" : "దాచుకోండి"}
+              >
+                {bookmarked ? (
+                  <BookmarkCheck className="w-4 h-4 text-[#A44A3F] fill-current" />
+                ) : (
+                  <Bookmark className="w-4 h-4" />
+                )}
+              </button>
+            </div>
           </div>
         </div>
       </div>
