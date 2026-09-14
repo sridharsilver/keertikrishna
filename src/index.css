@@ -1,0 +1,188 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-parchment: #FBF8F3;
+    --bg-card: #FFFFFF;
+    --text-primary: #1E1B18;
+    --text-secondary: #5C554E;
+    --text-muted: #8E857C;
+    --border-subtle: #E8E2D8;
+    --border-strong: #D5CCC0;
+    --accent-terracotta: #A44A3F;
+    --accent-ochre: #C07D3E;
+    --accent-forest: #2C423B;
+    --accent-navy: #1B2A38;
+  }
+
+  /* Reading Themes */
+  body.theme-parchment {
+    --bg-surface: #FBF8F3;
+    --bg-content: #FDFBF7;
+    --bg-toolbar: rgba(251, 248, 243, 0.96);
+    --text-main: #1C1917;
+    --text-sub: #44403C;
+    --text-muted: #57534E;
+    --border-theme: #D5CCC0;
+    --border-subtle: #E8E2D8;
+    background-color: var(--bg-surface);
+    color: var(--text-main);
+  }
+
+  body.theme-sepia {
+    --bg-surface: #F4ECD8;
+    --bg-content: #EDE2C6;
+    --bg-toolbar: rgba(244, 236, 216, 0.96);
+    --text-main: #2D1F13;
+    --text-sub: #543E28;
+    --text-muted: #72573B;
+    --border-theme: #CFBD9F;
+    --border-subtle: #DDCFB5;
+    background-color: var(--bg-surface);
+    color: var(--text-main);
+  }
+
+  body.theme-white {
+    --bg-surface: #FFFFFF;
+    --bg-content: #F9FAFB;
+    --bg-toolbar: rgba(255, 255, 255, 0.96);
+    --text-main: #111827;
+    --text-sub: #374151;
+    --text-muted: #4B5563;
+    --border-theme: #D1D5DB;
+    --border-subtle: #E5E7EB;
+    background-color: var(--bg-surface);
+    color: var(--text-main);
+  }
+
+  body.theme-midnight {
+    --bg-surface: #12151A;
+    --bg-content: #1A1E24;
+    --bg-toolbar: rgba(18, 21, 26, 0.96);
+    --text-main: #F3F4F6;
+    --text-sub: #D1D5DB;
+    --text-muted: #9CA3AF;
+    --border-theme: #374151;
+    --border-subtle: #2D333B;
+    background-color: var(--bg-surface);
+    color: var(--text-main);
+  }
+
+  /* Base heading typography safeguards for Telugu ascenders and descenders */
+  h1, h2, h3, h4, h5, h6 {
+    line-height: 1.4;
+    overflow-wrap: break-word;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Typography utilities */
+  .font-telugu-serif {
+    font-family: 'Noto Serif Telugu', 'Peddana', serif;
+    letter-spacing: normal;
+  }
+
+  .font-telugu-sans {
+    font-family: 'Noto Sans Telugu', 'Mandali', sans-serif;
+    letter-spacing: normal;
+  }
+
+  .font-telugu-poetry {
+    font-family: 'Suranna', 'Noto Serif Telugu', serif;
+    letter-spacing: normal;
+  }
+
+  .font-editorial-serif {
+    font-family: 'Playfair Display', 'Cormorant Garamond', 'Noto Serif Telugu', serif;
+  }
+
+  .font-literary-sans {
+    font-family: 'Outfit', 'Noto Sans Telugu', sans-serif;
+  }
+
+  .font-brand {
+    font-family: 'Cinzel', 'Noto Serif Telugu', serif;
+  }
+}
+
+/* Ensure Telugu glyphs have sufficient room in line clamped boxes */
+[class*="line-clamp-"] {
+  padding-block: 2px;
+}
+
+/* Custom Scrollbar for magazine experience */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D5CCC0;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #A44A3F;
+}
+
+/* Longform reading styles */
+.story-body {
+  font-family: 'Noto Serif Telugu', serif;
+  line-height: 2.1;
+  letter-spacing: 0.01em;
+  word-spacing: 0.02em;
+}
+
+.story-body p {
+  margin-bottom: 1.85em;
+  text-align: left;
+}
+
+.story-body p:first-of-type::first-letter {
+  font-family: 'Suranna', 'Noto Serif Telugu', serif;
+  font-size: 3.6em;
+  float: left;
+  line-height: 0.85;
+  margin-right: 0.15em;
+  margin-top: 0.08em;
+  color: #A44A3F;
+  font-weight: 700;
+}
+
+/* Poem reading format */
+.poem-body {
+  font-family: 'Suranna', 'Noto Serif Telugu', serif;
+  line-height: 2.3;
+  letter-spacing: 0.02em;
+  white-space: pre-line;
+}
+
+.poem-body p {
+  margin-bottom: 2em;
+}
+
+/* Soft transition effects */
+.transition-reading {
+  transition: background-color 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+              color 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Smooth Image Fade-In */
+img {
+  content-visibility: auto;
+}
+
+/* Print layout for physical printing of literature */
+@media print {
+  header, footer, nav, .reader-toolbar, .no-print {
+    display: none !important;
+  }
+  body {
+    background: white !important;
+    color: black !important;
+  }
+}
