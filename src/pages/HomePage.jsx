@@ -61,7 +61,7 @@ export function HomePage() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center gap-2 text-xs font-brand tracking-widest text-[#A44A3F] font-bold uppercase mb-4">
           <Sparkles className="w-4 h-4" />
-          <span>ప్రధాన కథనం (Featured Story)</span>
+          <span>ప్రధాన కథనం</span>
         </div>
 
         {loading ? (
@@ -138,7 +138,7 @@ export function HomePage() {
             <div className="max-w-3xl relative z-10 space-y-4">
               <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/15 rounded-full text-xs font-telugu-sans font-bold text-amber-200">
                 <Sparkles className="w-3.5 h-3.5 text-amber-300" />
-                <span>సంపాదకుల ఎంపిక (Editor's Pick)</span>
+                <span>సంపాదకుల ఎంపిక</span>
               </div>
               <h3 className="text-2xl sm:text-4xl font-telugu-serif font-black leading-[1.35] py-0.5">
                 <Link to={`/${editorsPick.type === "poem" ? "poems" : "stories"}/${editorsPick.slug}`} className="hover:text-amber-200 transition">

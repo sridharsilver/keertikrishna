@@ -12,15 +12,10 @@ export function PoemCard({ poem, variant = "standard" }) {
   if (variant === "featured") {
     return (
       <div className="relative bg-[var(--bg-content,#FDFBF7)] border-2 border-[var(--border-theme,#D5CCC0)] rounded-3xl p-6 sm:p-10 md:p-12 text-center shadow-md overflow-hidden">
-        {/* Background decorative watermark */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[#A44A3F]/5 dark:text-white/5 pointer-events-none text-9xl font-serif select-none">
-          కవిత
-        </div>
-
         <div className="relative z-10 max-w-2xl mx-auto space-y-5 sm:space-y-6">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 bg-[#C07D3E]/15 text-[#C07D3E] dark:text-[#E8A568] text-xs font-telugu-sans font-bold rounded-full border border-[#C07D3E]/30">
             <Feather className="w-3.5 h-3.5" />
-            <span>ప్రత్యేక కవిత (Featured Poem)</span>
+            <span>ప్రత్యేక కవిత</span>
           </div>
 
           <h2 className="text-2xl sm:text-4xl lg:text-5xl font-telugu-poetry font-bold text-[var(--text-main,#1C1917)] leading-[1.35] py-0.5">
