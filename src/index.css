@@ -13,6 +13,9 @@
     --accent-ochre: #C07D3E;
     --accent-forest: #2C423B;
     --accent-navy: #1B2A38;
+    --scrollbar-track: rgba(0, 0, 0, 0.03);
+    --scrollbar-thumb: #D5CCC0;
+    --scrollbar-thumb-hover: #A44A3F;
   }
 
   /* Reading Themes */
@@ -25,6 +28,9 @@
     --text-muted: #57534E;
     --border-theme: #D5CCC0;
     --border-subtle: #E8E2D8;
+    --scrollbar-track: #F4EFE6;
+    --scrollbar-thumb: #CFC2B0;
+    --scrollbar-thumb-hover: #A44A3F;
     background-color: var(--bg-surface);
     color: var(--text-main);
   }
@@ -38,6 +44,9 @@
     --text-muted: #72573B;
     --border-theme: #CFBD9F;
     --border-subtle: #DDCFB5;
+    --scrollbar-track: #EBE0C7;
+    --scrollbar-thumb: #C6B595;
+    --scrollbar-thumb-hover: #9E4336;
     background-color: var(--bg-surface);
     color: var(--text-main);
   }
@@ -51,6 +60,9 @@
     --text-muted: #4B5563;
     --border-theme: #D1D5DB;
     --border-subtle: #E5E7EB;
+    --scrollbar-track: #F3F4F6;
+    --scrollbar-thumb: #CBD5E1;
+    --scrollbar-thumb-hover: #A44A3F;
     background-color: var(--bg-surface);
     color: var(--text-main);
   }
@@ -64,6 +76,9 @@
     --text-muted: #9CA3AF;
     --border-theme: #374151;
     --border-subtle: #2D333B;
+    --scrollbar-track: #181C23;
+    --scrollbar-thumb: #374151;
+    --scrollbar-thumb-hover: #C55E52;
     background-color: var(--bg-surface);
     color: var(--text-main);
   }
@@ -109,23 +124,40 @@
   padding-block: 2px;
 }
 
-/* Custom Scrollbar for magazine experience */
+/* Beautified Custom Scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb, #D5CCC0) var(--scrollbar-track, transparent);
+}
+
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  width: 10px;
+  height: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #D5CCC0;
+  background: var(--scrollbar-track, transparent);
   border-radius: 9999px;
 }
 
+::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-thumb, #D5CCC0);
+  border-radius: 9999px;
+  border: 2px solid var(--bg-surface, #FBF8F3);
+  background-clip: padding-box;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
 ::-webkit-scrollbar-thumb:hover {
-  background: #A44A3F;
+  background-color: var(--scrollbar-thumb-hover, #A44A3F);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background-color: #8B3D34;
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
 }
 
 /* Longform reading styles */
