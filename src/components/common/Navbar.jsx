@@ -99,7 +99,7 @@ export function Navbar() {
   return (
     <>
       {/* Top Issue Notice Bar */}
-      <div className="bg-[#1C1917] text-[#F5F5F4] text-[11px] sm:text-xs py-1.5 px-4 font-telugu-sans tracking-wide border-b border-stone-800">
+      <div className="bg-[#1C1917] text-[#F5F5F4] text-[11px] sm:text-xs py-2.5 px-4 font-telugu-sans tracking-wide border-b border-stone-800">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[#A44A3F] animate-pulse"></span>
@@ -119,12 +119,12 @@ export function Navbar() {
       {/* Main Header / Masthead */}
       <header className="sticky top-0 z-40 bg-[var(--bg-toolbar,#FBF8F3)] backdrop-blur-md border-b border-[var(--border-theme,#D5CCC0)] transition-reading shadow-xs">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <div className="flex items-center justify-between h-20">
+          <div className="flex items-center justify-between min-h-[5.5rem] md:min-h-[6.25rem] py-3.5 md:py-4.5">
             {/* Mobile Menu Trigger */}
             <div className="flex items-center md:hidden z-10">
               <button
                 onClick={() => setMobileMenuOpen(true)}
-                className="p-2 rounded-lg hover:bg-black/5 dark:hover:bg-white/10 text-[var(--text-main,#1C1917)] transition"
+                className="p-2.5 rounded-xl hover:bg-black/5 dark:hover:bg-white/10 text-[var(--text-main,#1C1917)] transition"
                 aria-label="మెనూ తెరవండి"
               >
                 <Menu className="w-6 h-6" />
@@ -133,12 +133,12 @@ export function Navbar() {
 
             {/* Publication Masthead Logo (Centered on mobile, left-aligned on desktop) */}
             <div className="absolute left-1/2 -translate-x-1/2 md:static md:left-auto md:translate-x-0 text-center md:text-left z-0 pointer-events-auto">
-              <Link to="/" className="inline-flex flex-col items-center md:items-start group text-center md:text-left py-0.5">
-                <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-telugu-serif font-black text-[var(--text-main,#1C1917)] group-hover:text-[#A44A3F] transition-colors leading-normal whitespace-nowrap px-1 py-0.5">
+              <Link to="/" className="inline-flex flex-col items-center md:items-start group text-center md:text-left py-1">
+                <h1 className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl font-telugu-serif font-black text-[var(--text-main,#1C1917)] group-hover:text-[#A44A3F] transition-colors leading-normal whitespace-nowrap px-1 py-0.5 tracking-wide">
                   కీర్తి కృష్ణ
                 </h1>
-                <div className="flex items-center gap-1.5 sm:gap-2 justify-center md:justify-start mt-0.5">
-                  <span className="text-[9px] sm:text-[10px] md:text-[11px] font-brand tracking-[0.18em] sm:tracking-[0.25em] text-[#A44A3F] font-bold uppercase whitespace-nowrap">
+                <div className="flex items-center gap-1.5 sm:gap-2 justify-center md:justify-start mt-1">
+                  <span className="text-[9px] sm:text-[10px] md:text-[11px] font-brand tracking-[0.2em] sm:tracking-[0.25em] text-[#A44A3F] font-bold uppercase whitespace-nowrap">
                     KEERTI KRISHNA
                   </span>
                   <span className="text-[9px] sm:text-[10px] text-[var(--text-muted,#57534E)] font-telugu-sans font-medium hidden sm:inline whitespace-nowrap">
@@ -155,7 +155,7 @@ export function Navbar() {
                   key={link.path}
                   to={link.path}
                   className={({ isActive }) =>
-                    `px-3.5 py-2 rounded-full font-telugu-sans text-sm font-semibold transition-colors ${
+                    `px-4 py-2.5 rounded-full font-telugu-sans text-sm font-semibold transition-colors ${
                       isActive
                         ? "text-[#A44A3F] font-bold bg-[#A44A3F]/10 ring-1 ring-[#A44A3F]/30"
                         : "text-[var(--text-sub,#44403C)] hover:text-[var(--text-main,#1C1917)] hover:bg-black/5 dark:hover:bg-white/5"
